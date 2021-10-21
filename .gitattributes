@@ -1,7 +1,7 @@
 # Set default behaviour, in case users don't have core.autocrlf set.
 
 global core.autocrlf=false
-global core.whitespace=-trailing-space,-space-before-tab,-indent-with-non-tab,-tab-in-indent,-cr-at-eol
+global core.whitespace=blank-at-eol,blank-at-eof,-space-before-tab,-indent-with-non-tab,-tab-in-indent,cr-at-eol
 #* text=unset
 #*.csv -crlf
 
