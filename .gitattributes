@@ -1,8 +1,8 @@
 # Set default behaviour, in case users don't have core.autocrlf set.
 
-global core.autocrlf=false
-global core.whitespace=blank-at-eol,blank-at-eof,-space-before-tab,-indent-with-non-tab,-tab-in-indent,cr-at-eol
-* text=unset
+#global core.autocrlf=false
+#global core.whitespace=blank-at-eol,blank-at-eof,-space-before-tab,-indent-with-non-tab,-tab-in-indent,cr-at-eol
+* text=auto
 *.csv eol=-crlf
 
 # Explicitly declare text files we want to always be normalized and converted
