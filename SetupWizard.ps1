@@ -207,7 +207,7 @@ Function Show-SetupWizard {
 	$panel2.Location = '9, 5'
 	$panel2.Margin = '4, 4, 4, 4'
 	$panel2.Name = 'panel2'
-	$panel2.Size = '403, 52'
+	$panel2.Size = '400, 52'
 	$panel2.TabIndex = 3
 	#
 	# textbox1
@@ -240,7 +240,7 @@ Function Show-SetupWizard {
 	$panel1.Location = '9, 66'
 	$panel1.Margin = '4, 4, 4, 4'
 	$panel1.Name = 'panel1'
-	$panel1.Size = '405, 154'
+	$panel1.Size = '400, 100'
 	$panel1.TabIndex = 12
 	#
 	# checkboxPowerShellSetExecuti
@@ -353,8 +353,8 @@ Function Show-SetupWizard {
 	$progressbar1.Name = 'progressbar1'
 	$progressbar1.Size = '401, 20'
 	$progressbar1.TabIndex = 0
-	$progressbar1.Style = 'Marquee'
-	$progressbar1.MarqueeAnimationSpeed = '185'
+	$progressbar1.Style = 'Continuous'
+	$progressbar1.MarqueeAnimationSpeed = '250'
 	$progressbar1.Enabled = $true
 	$progressbar1.Visible = $true
 	
