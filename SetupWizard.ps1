@@ -182,7 +182,7 @@ Function Show-SetupWizard {
 	$form2.AutoScaleDimensions = '9, 19'
 	$form2.AutoScaleMode = 'Font'
 	$form2.BackColor = 'ControlLight'
-	$form2.ClientSize = '423, 200'
+	$form2.ClientSize = '420,150'
 	$form2.Cursor = 'Default'
 	$form2.Font = 'Consolas, 9pt'
 	$form2.FormBorderStyle = 'FixedSingle'
