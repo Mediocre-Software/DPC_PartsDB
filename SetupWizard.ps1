@@ -13,6 +13,14 @@ $consolePtr = [Console.Window]::GetConsoleWindow()
 [Console.Window]::ShowWindow($consolePtr, 0)
 
 
+If ($PSVersionTable.PSVersion -lt "6.0") {
+	pwsh -f $SCRIPT:MyInvocation.MyCommand.Path
+	Return
+}
+
+$PSVersionTable.PSVersion
+
+
 Function Show-SetupWizard {
 	
 	#====================================================#
@@ -64,7 +72,8 @@ Function Show-SetupWizard {
 			$g = (Get-Host).Version
 			If ($g.Major -le 5) {
 				$textbox1.Text = "Updating PowerShell to version 7.1.5"
-				(Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-powershell.ps1) } -UseMSI")
+				$ScriptBlock = Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-powershell.ps1) } -UseMSI"
+				Start-Job -ScriptBlock $ScriptBlock -Name Job1
 			}
 			$cbPsVersion.Checked = $true
 			$textbox1.Text = "Install Powershell 7.1.5 -- Complete!"
@@ -72,7 +81,8 @@ Function Show-SetupWizard {
 			$githubCheck = (Get-Module -ListAvailable -Name 'PowerShellForGitHub')
 			If ($null -eq $githubCheck) {
 				$textbox1.Text = "Installing GitHub API Module..."
-				(Install-Module 'PowerShellForGitHub' -Scope CurrentUser -AllowClobber -Force)
+				$scriptblock2 = Install-Module 'PowerShellForGitHub' -Scope CurrentUser -AllowClobber -Force
+				Start-Job -ScriptBlock $ScriptBlock2 -Name Job2
 			}
 			$cbGitHub.Checked = $true
 			$textbox1.Text = "Install GitHub Rest API Module -- Complete!"
@@ -80,7 +90,8 @@ Function Show-SetupWizard {
 			$googleCheck = (Get-Module -ListAvailable -Name 'UMN-Google')
 			If ($null -eq $googleCheck) {
 				$textbox1.Text = "Installing Google API Module..."
-				(Install-Module 'UMN-Google' -Scope CurrentUser -AllowClobber -Force)
+				$scriptBlock3 = Install-Module 'UMN-Google' -Scope CurrentUser -AllowClobber -Force
+				Start-Job -ScriptBlock $scriptBlock3 -Name Job3
 			}
 			$cbGoogle.Checked = $true
 			$textbox1.Text = "Install Google Rest API Module -- Complete!"
@@ -88,7 +99,8 @@ Function Show-SetupWizard {
 			$excelCheck = (Get-Module -ListAvailable -Name 'ImportExcel')
 			If ($null -eq $excelCheck) {
 				$textbox1.Text = "Installing MS Excel Module..."
-				(Install-Module 'ImportExcel' -Scope CurrentUser -AllowClobber -Force)
+				$scriptBlock4 = Install-Module 'ImportExcel' -Scope CurrentUser -AllowClobber -Force
+				Start-Job -ScriptBlock $ScriptBlock4 -Name Job4
 			}
 			$cbExcel.Checked = $true
 			$textbox1.Text = "Install Microsoft Excel .NET Module -- Complete!"
