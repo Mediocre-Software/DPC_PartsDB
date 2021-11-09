@@ -204,10 +204,10 @@ Function Show-SetupWizard {
 	#
 	$panel2.Controls.Add($textbox1)
 	$panel2.BorderStyle = 'FixedSingle'
-	$panel2.Location = '9, 5'
+	$panel2.Location = '9, 1'
 	$panel2.Margin = '4, 4, 4, 4'
 	$panel2.Name = 'panel2'
-	$panel2.Size = '400, 52'
+	$panel2.Size = '400, 50'
 	$panel2.TabIndex = 3
 	#
 	# textbox1
@@ -237,7 +237,7 @@ Function Show-SetupWizard {
 	$panel1.Controls.Add($cbExcel)
 	$panel1.Controls.Add($cbDatabase)
 	$panel1.BorderStyle = 'Fixed3D'
-	$panel1.Location = '9, 66'
+	$panel1.Location = '9, 56'
 	$panel1.Margin = '4, 4, 4, 4'
 	$panel1.Name = 'panel1'
 	$panel1.Size = '400, 100'
