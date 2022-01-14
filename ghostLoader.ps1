@@ -21,7 +21,7 @@ $consolePtr = [Console.Window]::GetConsoleWindow()
 #========#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#========#
 #========#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#========#
 		
-Function Show-snLoader {
+Function Show-ghostLoader {
 	
 #========#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#========#
 #========#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#========#
@@ -82,14 +82,14 @@ Function Show-snLoader {
 #========#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#========#
 		
 	$buttonSave_Click = {
-		(Set-Content -Value $textbox1.Text -Path "$($env:APPDATA)\ReportWizard\snOutput.txt" -Force)
-		$snGet = Get-Content "$($env:APPDATA)\ReportWizard\snOutput.txt" |
+		(Set-Content -Value $textbox1.Text -Path "$($env:APPDATA)\Ghostwriter\snOutput.txt" -Force)
+		$snGet = Get-Content "$($env:APPDATA)\Ghostwriter\snOutput.txt" |
 			ForEach-Object {
 			$_ = '"' + $_ + '"'
 			$_ = ($_ -replace '"{2}', "" -replace '^$\r\n', "")
 			$_
-			} | Set-Content -Encoding utf8  "$($env:APPDATA)\ReportWizard\SerialNumbers.txt" -Force
-		$global:serialNumbers = Get-Content "$($env:APPDATA)\ReportWizard\SerialNumbers.txt"
+			} | Set-Content -Encoding utf8  "$($env:APPDATA)\Ghostwriter\SerialNumbers.txt" -Force
+		$global:serialNumbers = Get-Content "$($env:APPDATA)\Ghostwriter\SerialNumbers.txt"
 		(Write-Host "Successfully Loaded and Processed $($serialNumbers.Count) Serial Numbers.")
 		
 		Start-Sleep -Seconds 1
@@ -179,13 +179,13 @@ BP113QL
 	$SNLoader.Controls.Add($panel2)
 	$SNLoader.Controls.Add($panel3)
 	$SNLoader.Controls.Add($panel4)
-	$SNLoader.AutoScaleDimensions = New-Object System.Drawing.SizeF(8, 17)
-	$SNLoader.AutoScaleMode = 'Font'
-	$SNLoader.BackColor = [System.Drawing.SystemColors]::ControlDarkDark 
+	$SNLoader.AutoScaleDimensions = '8, 18'
+	$SNLoader.AutoScaleMode = 'None'
+	$SNLoader.BackColor = 'ControlDarkDark '
 	$SNLoader.BackgroundImageLayout = 'Stretch'
-	$SNLoader.ClientSize = New-Object System.Drawing.Size(289, 431)
-	$SNLoader.Font = [System.Drawing.Font]::new('Consolas', '9')
-	$SNLoader.ForeColor = [System.Drawing.Color]::Black 
+	$SNLoader.ClientSize = '289, 431'
+	$SNLoader.Font = 'Code New Roman 9.5pt'
+	$SNLoader.ForeColor = 'Black'
 	$SNLoader.FormBorderStyle = 'FixedDialog'
 	#region Binary Data
 	$Formatter_binaryFomatter = New-Object System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
@@ -4946,6 +4946,8 @@ AAAAP/////////////////////////////4AAAAAAAAAAAD/////////////////////////////
 	$SNLoader.KeyPreview = $True
 	$SNLoader.MaximizeBox = $False
 	$SNLoader.MinimizeBox = $False
+	$SNLoader.StartPosition = 'CenterScreen'
+	$SNLoader.ShowIcon = $true
 	$SNLoader.Name = 'SNLoader'
 	$SNLoader.ShowInTaskbar = $False
 	$SNLoader.SizeGripStyle = 'Hide'
@@ -21611,4 +21613,4 @@ xYwH/n/oQ7P2+/ndfvnP/wWCt6pjtxhOzAAAAABJRU5ErkJgggs='))
 #========#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#========#
 #========#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#========#
 
-Show-snLoader | Out-Null
+Show-ghostLoader | Out-Null
